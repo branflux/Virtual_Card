@@ -488,3 +488,38 @@ body {
     font-size: 15px;
   }
 }
+/* Safari / mobile flip fix */
+.card-face {
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+.flip-card.show-back {
+  animation: subtleFloatReadable 5s ease-in-out infinite;
+  transform: translateY(0) scale(1) rotateX(0deg) rotateY(0deg);
+}
+
+.flip-card.show-back .card-front {
+  display: none;
+}
+
+.flip-card.show-back .card-back {
+  position: relative;
+  transform: rotateY(0deg);
+  min-height: 680px;
+}
+
+.flip-card.show-back .reveal {
+  opacity: 1;
+  transform: translateY(0);
+  animation: none;
+}
+
+@keyframes subtleFloatReadable {
+  0%, 100% {
+    transform: translateY(0) scale(1);
+  }
+  50% {
+    transform: translateY(-3px) scale(1);
+  }
+}

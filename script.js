@@ -1,5 +1,11 @@
 document.addEventListener("DOMContentLoaded", () => {
+  const flipCard = document.getElementById("flipCard");
   const buttons = document.querySelectorAll(".action-btn");
+
+  // After the flip animation, force the card into the readable contact side
+  setTimeout(() => {
+    flipCard.classList.add("show-back");
+  }, 3000);
 
   buttons.forEach((button) => {
     button.addEventListener("click", function (e) {
